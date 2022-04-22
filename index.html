@@ -318,8 +318,8 @@
       currentIDArray.push(notes[i].id)
     }
 
-    while (currentIDArray.includes(id)) {
-      id = genID
+    while (currentIDArray.includes(id) || (id.slice(0,1) == "-" || id.slice(0,1) == "_") {
+      id = genID()
     }
 
     let newNote = {
