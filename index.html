@@ -318,7 +318,7 @@
       currentIDArray.push(notes[i].id)
     }
 
-    while ( currentIDArray.includes(id) || id.slice(0,1) == "-" || id.slice(0,1) == "_" ) {
+    while (currentIDArray.includes(id)) {
       id = genID()
     }
 
@@ -420,11 +420,11 @@
   }
 
   function genID() {
-    const b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
+    const b52 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     let id = ""
     for (i = 0; i < 4; i++) {
-      const r64 = Math.floor(Math.random() * 64)
-      id = id.concat(b64.charAt(r64))
+      const r52 = Math.floor(Math.random() * 52)
+      id = id.concat(b52.charAt(r52))
     }
     return id
   }
